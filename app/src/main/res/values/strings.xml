@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Donaton</string>
+    <string name="hint_user">Usuario</string>
+    <string name="hint_password">Contraseña</string>
+
+    <string name="button_sing_in">Iniciar Sesión</string>
 </resources>
