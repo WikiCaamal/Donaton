@@ -1,5 +1,6 @@
 package com.dev.wiki.donaton;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,5 +32,9 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "User: "+user+"Password: "+password,Toast.LENGTH_SHORT).show();
     }
 
+    public void register(){
+        Intent register = new Intent(getApplicationContext(),RegisterActivity.class);
+        startActivity(register);
+    }
 
 }
