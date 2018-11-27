@@ -1,11 +1,29 @@
 package com.dev.wiki.donaton.Models;
 
 public class Person {
+    private Integer id;
     private String name;
     private String lastName;
     private String user;
     private String email;
     private String password;
+
+    public Person(Integer id, String name, String lastName, String user, String email, String password){
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.user = user;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Person(String name, String lastName, String user, String email, String password){
+        this.name = name;
+        this.lastName = lastName;
+        this.user = user;
+        this.email = email;
+        this.password = password;
+    }
 
     public String getName() {
         return name;
@@ -45,5 +63,13 @@ public class Person {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

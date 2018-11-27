@@ -6,7 +6,9 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
 public class BaseHelper extends SQLiteOpenHelper {
-    String table = "CREATE TABLE Personas (Id PRIMARY KEY AUTOINCREMENT, Nombre text, Apellido text)";
+    String tablePersonas = "CREATE TABLE Personas (Id INTEGER PRIMARY KEY AUTOINCREMENT, Nombre text, Apellido text, Usuario text, Correo text, Contrasena text)";
+    String tableArticulos = "CREATE TABLE Articulos(Id INTEGER PRIMARY KEY AUTOINCREMENT, Nombre text)";
+
 
     public BaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -14,16 +16,13 @@ public class BaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(table);
+        db.execSQL(tablePersonas);
+        db.execSQL(tableArticulos);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-    }
-
-    public boolean exacuteSql(String query){
-        return false;
     }
 
 }

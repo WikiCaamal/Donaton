@@ -32,7 +32,7 @@ public class LoginActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "User: "+user+"Password: "+password,Toast.LENGTH_SHORT).show();
     }
 
-    public void register(){
+    public void register(View view){
         Intent register = new Intent(getApplicationContext(),RegisterActivity.class);
         startActivity(register);
     }
