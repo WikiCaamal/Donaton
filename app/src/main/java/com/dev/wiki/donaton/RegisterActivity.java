@@ -38,12 +38,13 @@ public class RegisterActivity extends AppCompatActivity {
     public void registerNewUser(View view){
         person = new Person(name,lastName,user,email,password);
         if (VericarCampos()){
-            //if (daoPerson.insert(person)) {
-            //    Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_SHORT).show();
-            //}else {
-            //    Toast.makeText(this, "Algo Salio mal", Toast.LENGTH_SHORT).show();
-            //}
-            Toast.makeText(this, "Vassss Bien :)", Toast.LENGTH_SHORT).show();
+            //Todo: Habilitar el guarado de informacion
+            if (daoPerson.insert(person)) {
+                Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(this, "Algo Salio mal", Toast.LENGTH_SHORT).show();
+            }
+            //Toast.makeText(this, "Vassss Bien :)", Toast.LENGTH_SHORT).show();
         }
     }
 

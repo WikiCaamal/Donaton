@@ -23,7 +23,7 @@ public class DaoPerson {
     public DaoPerson(Context context){
         this.context = context;
         this.baseHelper = new BaseHelper(context,"Donaton.db",null,1);
-        this.dbWrite = this.baseHelper.getWritableDatabase();
+      this.dbWrite = this.baseHelper.getWritableDatabase();
         this.dbRead = this.baseHelper.getReadableDatabase();
     }
 
