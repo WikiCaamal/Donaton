@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="margin_all">8dp</dimen>
+    <dimen name="textsize_login">20sp</dimen>
+    <dimen name="textsize_general">20sp</dimen>
 </resources>
