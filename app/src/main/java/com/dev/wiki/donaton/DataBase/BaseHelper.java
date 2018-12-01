@@ -6,8 +6,23 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
 
 public class BaseHelper extends SQLiteOpenHelper {
-    String tablePersonas = "CREATE TABLE Personas (Id INTEGER PRIMARY KEY AUTOINCREMENT, Nombre text, Apellido text, Usuario text, Correo text, Contrasena text)";
-    String tableArticulos = "CREATE TABLE Articulos(Id INTEGER PRIMARY KEY AUTOINCREMENT, Nombre text)";
+    
+    String tablaPersonas = "CREATE TABLE Personas " +
+            "(" +
+                "Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "Nombre text, " +
+                "Apellido text, " +
+                "Usuario text, " +
+                "Correo text, " +
+                "Contrasena text" +
+            ")";
+
+    String tablaArticulos = "CREATE TABLE Articulos" +
+            "("+
+                "Id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "Nombre text," +
+                "Descripcion text" +
+            ")";
 
 
     public BaseHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
@@ -16,8 +31,8 @@ public class BaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(tablePersonas);
-        db.execSQL(tableArticulos);
+        db.execSQL(tablaPersonas);
+        db.execSQL(tablaArticulos);
     }
 
     @Override
