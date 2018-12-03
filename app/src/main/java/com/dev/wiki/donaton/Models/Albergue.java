@@ -2,7 +2,7 @@ package com.dev.wiki.donaton.Models;
 
 public class Albergue {
 
-    private int id;
+    private Integer id;
     private String nombre;
     private String direccion;
     private String horario;
@@ -17,7 +17,7 @@ public class Albergue {
         this.ubicacion = ubicacion;
     }
 
-    public Albergue(int id,String nombre,String direccion, String horario, String telefono, String ubicacion){
+    public Albergue(Integer id,String nombre,String direccion, String horario, String telefono, String ubicacion){
         this.id = id;
         this.nombre = nombre;
         this.direccion = direccion;
@@ -34,7 +34,7 @@ public class Albergue {
         this.ubicacion = ubicacion;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
