@@ -40,6 +40,8 @@ public class RegisterActivity extends AppCompatActivity {
             person = new Person(name,lastName,user,email,password);
             if (daoPerson.insert(person)) {
                 Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_SHORT).show();
+                clearComponents();
+                finish();
             }else {
                 Toast.makeText(this, "Algo Salio mal", Toast.LENGTH_SHORT).show();
             }
@@ -67,6 +69,15 @@ public class RegisterActivity extends AppCompatActivity {
                 return false;
             }
         }
+    }
+
+    public void clearComponents(){
+        etName.setText("");
+        etLastName.setText("");
+        etUser.setText("");
+        etEmail.setText("");
+        etPassword.setText("");
+        etPasswordConfirm.setText("");
     }
 
     public void cancel(View view){
