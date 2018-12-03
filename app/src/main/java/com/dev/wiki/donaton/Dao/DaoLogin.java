@@ -7,13 +7,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.dev.wiki.donaton.DataBase.BaseHelper;
-import com.dev.wiki.donaton.Models.Person;
+import com.dev.wiki.donaton.DataBase.Personas;
 
 public class DaoLogin {
     private BaseHelper baseHelper;
     private SQLiteDatabase dbRead;
     private Context context;
-
 
     public DaoLogin(Context context){
         this.context = context;
@@ -24,11 +23,12 @@ public class DaoLogin {
     public boolean validUser(String user, String password){
         try {
             if (dbRead!=null){
-               String query = "Select * from Personas where Usuario ='"+user+"' and Contrasena='"+password+"'";
-                Cursor persons = dbRead.rawQuery(query,null);
-                //Cursor persons = dbRead.rawQuery("Select * from Personas",null);
-               // Log.i("Dato",persons.getString(3));
+                String query = "SELECT * FROM "+Personas.TABLE_NAME + " WHERE Usuario = ? and Contrasena = ?";
+                String[] args = {user,password};
+                Cursor persons = dbRead.rawQuery(query,args);
+
                 int count = persons.getCount();
+
                 if (count>0){
                     return true;
                 }
@@ -37,7 +37,7 @@ public class DaoLogin {
                 }
             }else {return false;}
         }catch (Exception e){
-            Log.e("Error",e.getMessage());
+            Log.e("Message",e.getMessage());
             return false;
         }
     }
