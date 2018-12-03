@@ -36,15 +36,13 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void registerNewUser(View view){
-        person = new Person(name,lastName,user,email,password);
         if (VericarCampos()){
-            //Todo: Habilitar el guarado de informacion
+            person = new Person(name,lastName,user,email,password);
             if (daoPerson.insert(person)) {
                 Toast.makeText(this, "Registro Exitoso", Toast.LENGTH_SHORT).show();
             }else {
                 Toast.makeText(this, "Algo Salio mal", Toast.LENGTH_SHORT).show();
             }
-            //Toast.makeText(this, "Vassss Bien :)", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -62,7 +60,6 @@ public class RegisterActivity extends AppCompatActivity {
         }
         else {
             if (password.equals(passwordConfirm)){
-
                 return true;
             }
             else {
