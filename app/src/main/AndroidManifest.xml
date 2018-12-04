@@ -18,7 +18,9 @@
         </activity>
         <activity android:name=".RegisterActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".AlberguesActivity"></activity>
+        <activity android:name=".AlberguesActivity" />
+        <activity android:name=".DonarActivity" />
+        <activity android:name=".CategoriaActivity"></activity>
     </application>
 
 </manifest>
