@@ -20,7 +20,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".AlberguesActivity" />
         <activity android:name=".DonarActivity" />
-        <activity android:name=".CategoriaActivity"></activity>
+        <activity android:name=".CategoriaActivity" />
+        <activity android:name=".DetalleAlberqueActivity"></activity>
     </application>
 
 </manifest>
