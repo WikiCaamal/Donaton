@@ -10,12 +10,14 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.dev.wiki.donaton.Dao.DaoLogin;
+import com.dev.wiki.donaton.DataBase.Personas;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText etUser, etPassword;
     private Button btnSignIn;
     private String user, password;
     private DaoLogin daoLogin;
+    private Integer idUsuario;
 
     private void initComponents(){
         etUser = findViewById(R.id.etUser);
@@ -35,8 +37,12 @@ public class LoginActivity extends AppCompatActivity {
         user = etUser.getText().toString().trim();
         password = etPassword.getText().toString();
         if (validarCampos()){
-            if (daoLogin.validUser(user,password)){
+            idUsuario = daoLogin.validUser(user,password);
+            if (idUsuario != 0){
+                Bundle bundle = new Bundle();
+                bundle.putInt(Personas.COLUMN_ID,idUsuario);
                 Intent main = new Intent(this,MainActivity.class);
+                main.putExtras(bundle);
                 startActivity(main);
             }
             else {

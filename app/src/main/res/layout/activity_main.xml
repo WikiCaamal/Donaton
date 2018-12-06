@@ -43,19 +43,32 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="goDonar"
-                    android:text="@string/button_donar" />
+                    android:textSize="20dp"
+                    android:text="@string/button_donar"
+                    android:textColor="@color/editTextColorWhite"
+                    android:background="@color/colorPrimary"
+                    android:layout_margin="@dimen/margin_all"/>
 
                 <Button
                     android:id="@+id/btnAlbergues"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:onClick="goAlvergues"
-                    android:text="@string/button_albergues" />
+                    android:text="@string/button_albergues"
+                    android:layout_margin="@dimen/margin_all"
+                    android:textColor="@color/editTextColorWhite"
+                    android:textSize="20dp"
+                    android:background="@color/colorPrimary"/>
 
                 <Button
                     android:id="@+id/btnProfile"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="20dp"
+                    android:layout_margin="@dimen/margin_all"
+                    android:textColor="@color/editTextColorWhite"
+                    android:background="@color/colorPrimary"
+                    android:onClick="goPerfil"
                     android:text="@string/button_profile" />
             </LinearLayout>
         </ScrollView>

@@ -2,12 +2,15 @@ package com.dev.wiki.donaton;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.dev.wiki.donaton.Adapters.AlbergueAdapter;
 import com.dev.wiki.donaton.Models.Albergue;
+import com.dev.wiki.donaton.Models.Person;
 
 import java.util.ArrayList;
 
@@ -28,6 +31,14 @@ public class AlberguesActivity extends AppCompatActivity {
 
         AlbergueAdapter adapter = new AlbergueAdapter(this,testData());
         listAlbergue.setAdapter(adapter);
+
+
+        listAlbergue.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Person person = (Person) adapterView.getAdapter().getItem(i);
+            }
+        });
     }
 
     //TODO: Eliminar despues de las pruebas

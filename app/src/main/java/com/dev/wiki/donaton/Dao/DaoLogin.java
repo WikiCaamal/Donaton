@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.dev.wiki.donaton.DataBase.BaseHelper;
 import com.dev.wiki.donaton.DataBase.Personas;
+import com.dev.wiki.donaton.Models.Person;
 
 public class DaoLogin {
     private BaseHelper baseHelper;
@@ -20,7 +21,7 @@ public class DaoLogin {
         this.dbRead = this.baseHelper.getReadableDatabase();
     }
 
-    public boolean validUser(String user, String password){
+    public int validUser(String user, String password){
         try {
             if (dbRead!=null){
                 String query = "SELECT * FROM "+Personas.TABLE_NAME + " WHERE Usuario = ? and Contrasena = ?";
@@ -30,15 +31,20 @@ public class DaoLogin {
                 int count = persons.getCount();
 
                 if (count>0){
-                    return true;
+                    if (persons.moveToFirst()){
+                        return persons.getInt(persons.getColumnIndex(Personas.COLUMN_ID));
+                    }
+                    else {
+                        return 0;
+                    }
                 }
                 else {
-                    return false;
+                    return 0;
                 }
-            }else {return false;}
+            }else {return 0;}
         }catch (Exception e){
             Log.e("Message",e.getMessage());
-            return false;
+            return 0;
         }
     }
 }
