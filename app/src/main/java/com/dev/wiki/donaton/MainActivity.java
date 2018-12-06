@@ -6,8 +6,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+import com.dev.wiki.donaton.DataBase.Personas;
 
+public class MainActivity extends AppCompatActivity {
+    private Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,16 +17,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goAlvergues(View view){
-        Intent intent = new Intent(this,AlberguesActivity.class);
+        intent = new Intent(this,AlberguesActivity.class);
         startActivity(intent);
     }
 
     public void goDonar(View view){
-       try {
-           Intent intent = new Intent(this,CategoriaActivity.class);
-           startActivity(intent);
-       }catch (Exception e){
-           Log.e("Interrupcion",e.getMessage());
-       }
+       intent = new Intent(this,CategoriaActivity.class);
+       startActivity(intent);
+    }
+
+    public void goPerfil(View view){
+        Bundle bundle = new Bundle();
+        bundle.putInt(Personas.COLUMN_ID,getIntent().getExtras().getInt(Personas.COLUMN_ID));
+        intent = new Intent(this,PerfilActivity.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

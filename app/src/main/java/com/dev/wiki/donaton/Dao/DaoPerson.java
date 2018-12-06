@@ -52,6 +52,30 @@ public class DaoPerson {
         }
     }
 
+    public Person getById(int id){
+        try {
+            if (dbRead!=null){
+                String[] args = {String.valueOf(id)};
+                Cursor c = dbRead.rawQuery("Select * from Personas where "+Personas.COLUMN_ID+" = ?",args);
+                if (c.moveToFirst()){
+                        return person = new Person(
+                                c.getInt(c.getColumnIndex(Personas.COLUMN_ID)),
+                                c.getString(c.getColumnIndex(Personas.COLUMN_NOMBRE)),
+                                c.getString(c.getColumnIndex(Personas.COLUMN_APELLIDO)),
+                                c.getString(c.getColumnIndex(Personas.COLUMN_USUARIO)),
+                                c.getString(c.getColumnIndex(Personas.COLUMN_CORREO)),
+                                c.getString(c.getColumnIndex(Personas.COLUMN_CONTRASENA))
+                        );
+                }else{
+                    return null;
+                }
+
+            }else {return null;}
+        }catch (Exception e){
+            return null;
+        }
+    }
+
     public ContentValues getValuesRegistro(Person person){
         registro = new ContentValues();
         registro.put(Personas.COLUMN_NOMBRE,    person.getName());
@@ -82,9 +106,9 @@ public class DaoPerson {
 
         try {
             if (dbWrite != null){
-                String condicion = Personas.COLUMN_ID + "= ?";
-                String[] args = new String[]{person.getId().toString()};
-                if (dbWrite.update(Personas.TABLE_NAME,getValuesRegistro(person),condicion,args) != -1){
+                String condicion = Personas.COLUMN_ID + "= " + person.getId();
+                //String[] args = new String[]{person.getId().toString()};
+                if (dbWrite.update(Personas.TABLE_NAME,getValuesRegistro(person),condicion,null) != -1){
                     return true;
                 }else {
                     return false;

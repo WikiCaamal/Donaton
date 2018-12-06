@@ -21,7 +21,8 @@
         <activity android:name=".AlberguesActivity" />
         <activity android:name=".DonarActivity" />
         <activity android:name=".CategoriaActivity" />
-        <activity android:name=".DetalleAlberqueActivity"></activity>
+        <activity android:name=".DetalleAlberqueActivity" />
+        <activity android:name=".PerfilActivity"></activity>
     </application>
 
 </manifest>
